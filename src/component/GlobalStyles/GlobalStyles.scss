@@ -5,6 +5,9 @@
   --black-color: #121212;
   --white-color: #e8e8e8;
 }
+* {
+  box-sizing: border-box;
+}
 html {
   font-size: 62.5%;
 }

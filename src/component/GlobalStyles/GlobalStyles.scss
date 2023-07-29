@@ -1,0 +1,16 @@
+@import 'normalize.css';
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,500,600,700&display=swap&subset=vietnamese');
+:root {
+  --primary-color: #ff3b5c;
+  --black-color: #121212;
+  --white-color: #e8e8e8;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.6rem;
+  line-height: 1.5;
+  text-rendering: optimizeSpeed;
+}

@@ -1,4 +1,4 @@
-import Header from '~/component/Layout/DefaultLayout/Header';
+import Header from '~/component/Layout/components/Header';
 function UploadLayout({ children }) {
   return (
     <>

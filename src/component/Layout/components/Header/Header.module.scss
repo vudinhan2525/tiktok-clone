@@ -89,6 +89,8 @@
 .action-box {
   flex: 1;
   width: 262px;
+  display: flex;
+  justify-content: flex-end;
 }
 .search-result {
   width: var(--header-width);
@@ -113,5 +115,21 @@
   align-items: center;
   &:hover {
     background-color: #f8f8f8;
+  }
+}
+body .add-btn {
+  width: 112px;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 16px;
+  align-items: center;
+}
+body .options {
+  border: none;
+  min-width: 30px;
+  font-size: 2rem;
+  font-weight: 400;
+  &:hover {
+    background-color: unset;
   }
 }

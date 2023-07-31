@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -6,7 +6,6 @@ import {
   faMagnifyingGlass,
   faCircleNotch,
   faPlus,
-  faEllipsis,
   faEllipsisVertical,
 } from '@fortawesome/free-solid-svg-icons';
 import Tippy from '@tippyjs/react/headless';
@@ -19,7 +18,12 @@ import ProfileList from '~/component/Layout/components/ProfileList/ProfileList.j
 const cx = classNames.bind(styles);
 
 function Header() {
-  const [searchResult, setSearchResult] = useState(['s']);
+  const [searchResult, setSearchResult] = useState([]);
+  useEffect(() => {
+    setTimeout(() => {
+      setSearchResult([]);
+    }, 0);
+  }, []);
   return (
     <header className={cx('wrapped')}>
       <div className={cx('inner')}>

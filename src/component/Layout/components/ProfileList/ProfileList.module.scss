@@ -1,0 +1,41 @@
+.wrapped {
+  padding: 9px 16px;
+  cursor: pointer;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+
+  &:hover {
+    background-color: #f8f8f8;
+  }
+}
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+.info {
+  margin-left: 12px;
+}
+.id {
+  margin: 0;
+  font-size: 16px;
+  line-height: 21px;
+  letter-spacing: 0.03px;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.icon {
+  margin-left: 6px;
+  font-size: 1.4rem;
+  color: #20d5ec;
+}
+.name {
+  margin: 0;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 0.093px;
+  color: rgba(22, 24, 35, 0.5);
+  font-weight: 400;
+}

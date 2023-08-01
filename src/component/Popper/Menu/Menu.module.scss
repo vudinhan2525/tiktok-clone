@@ -1,0 +1,37 @@
+.content {
+  width: 230px;
+}
+.menu {
+  padding-bottom: 8px;
+}
+.item {
+  display: flex;
+  align-items: center;
+  color: rgb(22, 24, 35);
+  padding: 10px 8px 8px 16px;
+  justify-content: space-between;
+  cursor: pointer;
+  &:hover {
+    background-color: #f8f8f8;
+  }
+}
+.info {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.icon {
+  width: 20px;
+  font-size: 1.8rem;
+  text-align: center;
+}
+.icon + .title,
+.title + .icon {
+  margin-left: 8px;
+}
+.title {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 21px;
+  letter-spacing: 0.03px;
+}

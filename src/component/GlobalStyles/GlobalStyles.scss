@@ -26,6 +26,10 @@ body {
 button {
   border: none;
 }
+a {
+  text-decoration: none;
+  color: unset;
+}
 // Margin
 .mg-r8 {
   margin-right: 8px;

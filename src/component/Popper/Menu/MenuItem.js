@@ -17,7 +17,7 @@ function MenuItem({ data, ...passProps }) {
     props.href = data.href;
   }
   return (
-    <Comp className={cx('item')} {...props}>
+    <Comp className={cx('item', data.separate ? 'separate' : '')} {...props}>
       <div className={cx('info')}>
         {data.icon && <span className={cx('icon')}>{data.icon}</span>}
         <span className={cx('title')}>{data.title}</span>

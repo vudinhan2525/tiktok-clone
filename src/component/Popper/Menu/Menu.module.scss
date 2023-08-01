@@ -7,7 +7,7 @@
 .item {
   display: flex;
   align-items: center;
-  color: rgb(22, 24, 35);
+  color: var(--black-color);
   padding: 10px 8px 6px 16px;
   justify-content: space-between;
   cursor: pointer;
@@ -61,4 +61,7 @@
   letter-spacing: 0.03px;
   line-height: 32px;
   margin-left: 12px;
+}
+.separate {
+  border-top: 1px solid #e0d9d9;
 }

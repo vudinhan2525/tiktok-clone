@@ -1,5 +1,5 @@
 @import 'normalize.css';
-@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,500,600,700&display=swap&subset=vietnamese');
+// @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,500,600,700&display=swap&subset=vietnamese');
 
 :root {
   --primary-color: #ff3b5c;
@@ -16,7 +16,7 @@ html {
   font-size: 62.5%;
 }
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'TiktokFont', sans-serif;
   font-size: 1.6rem;
   line-height: 1.5;
   text-rendering: optimizeSpeed;
@@ -29,6 +29,17 @@ button {
 a {
   text-decoration: none;
   color: unset;
+}
+//Font -embedded
+@font-face {
+  font-family: TiktokFont;
+  src: url('/assets/fonts/TikTokDisplayFont-Bold.woff2');
+  font-weight: 700;
+}
+@font-face {
+  font-family: TiktokFont;
+  src: url('/assets/fonts/TikTokFont-Regular.woff2');
+  font-weight: 400;
 }
 // Margin
 .mg-r8 {
@@ -46,4 +57,24 @@ a {
 }
 .pd-r12 {
   padding-right: 12px;
+}
+// Overide Tippy
+
+body {
+  .tippy-box {
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 21px;
+    background-color: rgba(84, 84, 84, 0.92);
+    color: rgb(255, 255, 255);
+    letter-spacing: 0.03px;
+    padding: 2px;
+  }
+  .tippy-arrow {
+    color: rgba(84, 84, 84, 0.92);
+  }
+  .tippy-box[data-placement^='bottom'] > .tippy-arrow:before {
+    top: -8px;
+  }
 }

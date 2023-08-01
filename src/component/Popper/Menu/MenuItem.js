@@ -1,5 +1,6 @@
 import classNames from 'classnames/bind';
 import { Link } from 'react-router-dom';
+import ToggleSwitch from '~/component/Layout/components/ToggleSwitch';
 import styles from './Menu.module.scss';
 const cx = classNames.bind(styles);
 function MenuItem({ data, ...passProps }) {
@@ -18,9 +19,10 @@ function MenuItem({ data, ...passProps }) {
   return (
     <Comp className={cx('item')} {...props}>
       <div className={cx('info')}>
-        <span className={cx('icon')}>{data.icon}</span>
+        {data.icon && <span className={cx('icon')}>{data.icon}</span>}
         <span className={cx('title')}>{data.title}</span>
       </div>
+      {data.switch && <ToggleSwitch />}
     </Comp>
   );
 }

@@ -18,11 +18,25 @@ import images from '~/assets/image';
 import Button from '~/component/Layout/components/Button';
 import ProfileList from '~/component/Layout/components/ProfileList/ProfileList.js';
 import Menu from '~/component/Popper/Menu';
+
 const cx = classNames.bind(styles);
 const MenuItems = [
   {
     icon: <FontAwesomeIcon icon={faEarthAsia} />,
     title: 'Tiếng Việt',
+    children: {
+      title: 'Ngôn ngữ',
+      data: [
+        {
+          code: 'vi',
+          title: 'Tiếng Việt',
+        },
+        {
+          code: 'en',
+          title: 'English',
+        },
+      ],
+    },
   },
   {
     icon: <FontAwesomeIcon icon={faCircleQuestion} />,
@@ -36,6 +50,18 @@ const MenuItems = [
   {
     icon: <FontAwesomeIcon icon={faMoon} />,
     title: 'Chế độ tối',
+    switch: true,
+  },
+];
+const MenuLanguages = [
+  {
+    title: 'Tiếng Việt',
+  },
+  {
+    title: 'English',
+  },
+  {
+    title: 'French',
   },
 ];
 function Header() {

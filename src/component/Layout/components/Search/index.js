@@ -1,9 +1,11 @@
 import { useState, useRef, useEffect } from 'react';
+import axios from 'axios';
 import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Tippy from '@tippyjs/react/headless';
 import { faCircleXmark, faMagnifyingGlass, faCircleNotch } from '@fortawesome/free-solid-svg-icons';
 
+import { searchService } from '~/apiServices';
 import { useDebounce } from '~/hooks';
 import { Wrapper as PopperWrapper } from '~/component/Popper';
 import ProfileList from '~/component/Layout/components/ProfileList/ProfileList.js';
@@ -24,17 +26,13 @@ function Search() {
       setSearchResult([]);
       return;
     }
-    setLoading(true);
+    (async () => {
+      setLoading(true);
 
-    fetch(`https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(debounce)}&type=less`)
-      .then((res) => res.json())
-      .then((res) => {
-        setSearchResult(res.data);
-        setLoading(false);
-      })
-      .catch(() => {
-        setLoading(false);
-      });
+      const data = await searchService(debounce, 'less');
+      setSearchResult(data);
+      setLoading(false);
+    })();
   }, [debounce]);
 
   const handleDeleteInput = () => {

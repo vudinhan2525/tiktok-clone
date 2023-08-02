@@ -53,7 +53,7 @@ function Search() {
           <PopperWrapper>
             <h4 className={cx('search-title-account')}>Tài khoản</h4>
             {searchResult.map((result) => (
-              <ProfileList key={result.id} data={result}></ProfileList>
+              <ProfileList key={result.id} data={result} onClick={handleDeleteInput}></ProfileList>
             ))}
             <h4 className={cx('suggest-list')}>Xem tất cả kết quả tìm kiếm cho "{input}"</h4>
           </PopperWrapper>
@@ -65,7 +65,7 @@ function Search() {
         <input
           value={input}
           className={cx('search-input')}
-          onChange={(e) => setInput(e.target.value)}
+          onChange={(e) => (e.target.value.startsWith(' ') ? setInput('') : setInput(e.target.value))}
           onFocus={() => setShowResult(true)}
           ref={inputRef}
           type="text"

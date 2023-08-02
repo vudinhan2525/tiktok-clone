@@ -6,9 +6,9 @@ import Image from '~/component/Layout/components/Image';
 import styles from './ProfileList.module.scss';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 const cx = classNames.bind(styles);
-function ProfileList({ data }) {
+function ProfileList({ data, onClick }) {
   return (
-    <Link to={`/@${data.nickname}`} className={cx('wrapped')}>
+    <Link to={`/@${data.nickname}`} className={cx('wrapped')} onClick={onClick}>
       <Image className={cx('avatar')} src={data.avatar} alt={data.full_name} />
       <div className={cx('info')}>
         <p className={cx('id')}>

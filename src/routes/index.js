@@ -1,10 +1,11 @@
 import { Home, Following, Profile, Upload } from '~/pages';
 import UploadLayout from '~/component/Layout/UploadLayout';
+import routes from '~/config/routes.js';
 const publicRoutes = [
-  { path: '/', component: Home },
-  { path: '/following', component: Following },
-  { path: '/:nickname', component: Profile },
-  { path: '/upload', component: Upload, layout: UploadLayout },
+  { path: routes.home, component: Home },
+  { path: routes.following, component: Following },
+  { path: routes.profile, component: Profile },
+  { path: routes.upload, component: Upload, layout: UploadLayout },
 ];
 const privateRoutes = [];
 export { publicRoutes, privateRoutes };

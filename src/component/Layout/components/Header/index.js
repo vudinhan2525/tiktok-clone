@@ -1,8 +1,11 @@
 import classNames from 'classnames/bind';
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faEllipsisVertical } from '@fortawesome/free-solid-svg-icons';
 import TippyNormal from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
+
+import routes from '~/config/routes';
 import styles from './Header.module.scss';
 import images from '~/assets/image';
 import Search from '~/component/Layout/components/Search';
@@ -18,12 +21,14 @@ function Header() {
     <header className={cx('wrapped')}>
       <div className={cx('inner')}>
         <div className={cx('logo')}>
-          <img src={images.logo} alt="Tiktok" />
+          <Link to={routes.home} style={{ display: 'flex', width: '150px' }}>
+            <img src={images.logo} alt="Tiktok" />
+          </Link>
         </div>
         {/* Search */}
         <Search></Search>
         <div className={cx('action-box')}>
-          <Button cls={cx('add-btn')} leftIcon={<FontAwesomeIcon icon={faPlus} />}>
+          <Button cls={cx('add-btn')} to="/upload" leftIcon={<FontAwesomeIcon icon={faPlus} />}>
             Tải lên
           </Button>
           {currentUser ? (

@@ -7,7 +7,7 @@ import MenuItem from './MenuItem';
 import HeaderMenu from './HeaderMenu';
 const cx = classNames.bind(styles);
 
-function Menu({ items = [], children }) {
+function Menu({ items = [], hideOnClick = false, children }) {
   const [history, setHistory] = useState([{ data: items }]);
   const current = history[history.length - 1].data;
   function handleClick(e, index, item, isParent) {
@@ -27,6 +27,7 @@ function Menu({ items = [], children }) {
       offset={[12, 10]}
       interactive
       delay={[0, 700]}
+      hideOnClick={hideOnClick}
       placement="bottom-end"
       render={(attrs) => (
         <div className={cx('content')} tabIndex="-1" {...attrs}>

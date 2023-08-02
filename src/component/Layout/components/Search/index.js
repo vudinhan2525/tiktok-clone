@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Tippy from '@tippyjs/react/headless';
 import { faCircleXmark, faMagnifyingGlass, faCircleNotch } from '@fortawesome/free-solid-svg-icons';
 
+import { useDebounce } from '~/hooks';
 import { Wrapper as PopperWrapper } from '~/component/Popper';
 import ProfileList from '~/component/Layout/components/ProfileList/ProfileList.js';
 import styles from './Search.module.scss';
@@ -14,26 +15,27 @@ function Search() {
   const [searchResult, setSearchResult] = useState([]);
   const [showResult, setShowResult] = useState(true);
   const [loading, setLoading] = useState(false);
+
+  const debounce = useDebounce(input, 500);
   const inputRef = useRef();
 
   useEffect(() => {
-    if (input.trim() === '') {
+    if (debounce.trim() === '') {
       setSearchResult([]);
       return;
     }
     setLoading(true);
-    setTimeout(() => {
-      fetch(`https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(input)}&type=less`)
-        .then((res) => res.json())
-        .then((res) => {
-          setSearchResult(res.data);
-          setLoading(false);
-        })
-        .catch(() => {
-          setLoading(false);
-        });
-    }, 200);
-  }, [input]);
+
+    fetch(`https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(debounce)}&type=less`)
+      .then((res) => res.json())
+      .then((res) => {
+        setSearchResult(res.data);
+        setLoading(false);
+      })
+      .catch(() => {
+        setLoading(false);
+      });
+  }, [debounce]);
 
   const handleDeleteInput = () => {
     setSearchResult([]);

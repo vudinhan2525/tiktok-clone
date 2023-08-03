@@ -34,7 +34,12 @@ function Header() {
           {currentUser ? (
             <>
               <TippyNormal offset={[0, 8]} delay={[0, 200]} content="Tin nhắn">
-                <button className={cx('msg-btn')}>
+                <button
+                  onClick={() => {
+                    window.location.href = 'http://localhost:3000/message';
+                  }}
+                  className={cx('msg-btn')}
+                >
                   <UpLoadIcons />
                   {/* /* <FontAwesomeIcon icon={faPaperPlane} /> */}
                 </button>

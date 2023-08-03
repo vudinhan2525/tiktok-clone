@@ -10,15 +10,7 @@ import {
   faCoins,
   faArrowRightFromBracket,
 } from '@fortawesome/free-solid-svg-icons';
-import {
-  faMoon,
-  faCircleQuestion,
-  faKeyboard,
-  faMessage,
-  faPaperPlane,
-  faUser,
-  faHeart,
-} from '@fortawesome/free-regular-svg-icons';
+import { faMoon, faCircleQuestion, faKeyboard, faUser, faHeart } from '@fortawesome/free-regular-svg-icons';
 const MenuItems = [
   {
     icon: <FontAwesomeIcon icon={faEarthAsia} />,
@@ -26,6 +18,94 @@ const MenuItems = [
     children: {
       title: 'Ngôn ngữ',
       data: [
+        {
+          code: 'vi',
+          title: 'Tiếng Việt',
+        },
+        {
+          code: 'en',
+          title: 'English',
+        },
+        {
+          code: 'vi',
+          title: 'Tiếng Việt',
+        },
+        {
+          code: 'en',
+          title: 'English',
+        },
+        {
+          code: 'vi',
+          title: 'Tiếng Việt',
+        },
+        {
+          code: 'en',
+          title: 'English',
+        },
+        {
+          code: 'vi',
+          title: 'Tiếng Việt',
+        },
+        {
+          code: 'en',
+          title: 'English',
+        },
+        {
+          code: 'vi',
+          title: 'Tiếng Việt',
+        },
+        {
+          code: 'en',
+          title: 'English',
+        },
+        {
+          code: 'vi',
+          title: 'Tiếng Việt',
+        },
+        {
+          code: 'en',
+          title: 'English',
+        },
+        {
+          code: 'vi',
+          title: 'Tiếng Việt',
+        },
+        {
+          code: 'en',
+          title: 'English',
+        },
+        {
+          code: 'vi',
+          title: 'Tiếng Việt',
+        },
+        {
+          code: 'en',
+          title: 'English',
+        },
+        {
+          code: 'vi',
+          title: 'Tiếng Việt',
+        },
+        {
+          code: 'en',
+          title: 'English',
+        },
+        {
+          code: 'vi',
+          title: 'Tiếng Việt',
+        },
+        {
+          code: 'en',
+          title: 'English',
+        },
+        {
+          code: 'vi',
+          title: 'Tiếng Việt',
+        },
+        {
+          code: 'en',
+          title: 'English',
+        },
         {
           code: 'vi',
           title: 'Tiếng Việt',

@@ -12,7 +12,6 @@ function Menu({ items = [], hideOnClick = false, children }) {
   const current = history[history.length - 1].data;
   function handleClick(e, index, item, isParent) {
     if (isParent) {
-      console.log(item.children.data);
       setHistory((prev) => [...prev, item.children]);
     }
   }
@@ -27,7 +26,7 @@ function Menu({ items = [], hideOnClick = false, children }) {
       offset={[12, 10]}
       interactive
       delay={[0, 700]}
-      hideOnClick={hideOnClick}
+      //hideOnClick={hideOnClick}
       placement="bottom-end"
       render={(attrs) => (
         <div className={cx('content')} tabIndex="-1" {...attrs}>
@@ -40,7 +39,7 @@ function Menu({ items = [], hideOnClick = false, children }) {
                 title="Ngôn ngữ"
               />
             )}
-            {renderItems()}
+            <div className={cx('menu-body')}>{renderItems()}</div>
           </PopperWrapper>
         </div>
       )}

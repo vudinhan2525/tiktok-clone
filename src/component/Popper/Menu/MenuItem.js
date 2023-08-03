@@ -20,7 +20,7 @@ function MenuItem({ data, ...passProps }) {
     <Comp className={cx('item', data.separate ? 'separate' : '')} {...props}>
       <div className={cx('info')}>
         {data.icon && <span className={cx('icon')}>{data.icon}</span>}
-        <span className={cx('title')}>{data.title}</span>
+        <span className={cx('title', data.code ? 'language' : '')}>{data.title}</span>
       </div>
       {data.switch && <ToggleSwitch />}
     </Comp>

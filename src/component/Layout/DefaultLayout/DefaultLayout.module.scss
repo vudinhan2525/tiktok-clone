@@ -1,6 +1,7 @@
 .container {
   display: flex;
   min-height: 1000px;
+  margin-top: var(--header-height);
 }
 .content {
   flex: 1;

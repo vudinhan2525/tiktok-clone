@@ -45,48 +45,52 @@ function Search() {
     setShowResult(false);
   };
   return (
-    <Tippy
-      visible={showResult && searchResult.length > 0}
-      interactive
-      render={(attrs) => (
-        <div className={cx('search-result')} tabIndex="-1" {...attrs}>
-          <PopperWrapper>
-            <h4 className={cx('search-title-account')}>Tài khoản</h4>
-            {searchResult.map((result) => (
-              <ProfileList key={result.id} data={result} onClick={handleDeleteInput}></ProfileList>
-            ))}
-            <h4 className={cx('suggest-list')}>Xem tất cả kết quả tìm kiếm cho "{input}"</h4>
-          </PopperWrapper>
+    // Using div wrapped <div> tag to solve Tippy
+    <div>
+      <Tippy
+        visible={showResult && searchResult.length > 0}
+        appendTo={() => document.body}
+        interactive
+        render={(attrs) => (
+          <div className={cx('search-result')} tabIndex="-1" {...attrs}>
+            <PopperWrapper>
+              <h4 className={cx('search-title-account')}>Tài khoản</h4>
+              {searchResult.map((result) => (
+                <ProfileList key={result.id} data={result} onClick={handleDeleteInput}></ProfileList>
+              ))}
+              <h4 className={cx('suggest-list')}>Xem tất cả kết quả tìm kiếm cho "{input}"</h4>
+            </PopperWrapper>
+          </div>
+        )}
+        onClickOutside={handleHideResult}
+      >
+        <div className={cx('search-box')}>
+          <input
+            value={input}
+            className={cx('search-input')}
+            onChange={(e) => (e.target.value.startsWith(' ') ? setInput('') : setInput(e.target.value))}
+            onFocus={() => setShowResult(true)}
+            ref={inputRef}
+            type="text"
+            placeholder="Tìm kiếm"
+            spellCheck={false}
+          ></input>
+          {input !== '' && !loading && (
+            <button onClick={handleDeleteInput} className={cx('clear')}>
+              <FontAwesomeIcon icon={faCircleXmark} />
+            </button>
+          )}
+          {loading && (
+            <button className={cx('loading')}>
+              <FontAwesomeIcon icon={faCircleNotch} className="fa-spin" />
+            </button>
+          )}
+          <button className={cx('search-btn')}>
+            <FontAwesomeIcon icon={faMagnifyingGlass} />
+          </button>
         </div>
-      )}
-      onClickOutside={handleHideResult}
-    >
-      <div className={cx('search-box')}>
-        <input
-          value={input}
-          className={cx('search-input')}
-          onChange={(e) => (e.target.value.startsWith(' ') ? setInput('') : setInput(e.target.value))}
-          onFocus={() => setShowResult(true)}
-          ref={inputRef}
-          type="text"
-          placeholder="Tìm kiếm"
-          spellCheck={false}
-        ></input>
-        {input !== '' && !loading && (
-          <button onClick={handleDeleteInput} className={cx('clear')}>
-            <FontAwesomeIcon icon={faCircleXmark} />
-          </button>
-        )}
-        {loading && (
-          <button className={cx('loading')}>
-            <FontAwesomeIcon icon={faCircleNotch} className="fa-spin" />
-          </button>
-        )}
-        <button className={cx('search-btn')}>
-          <FontAwesomeIcon icon={faMagnifyingGlass} />
-        </button>
-      </div>
-    </Tippy>
+      </Tippy>
+    </div>
   );
 }
 

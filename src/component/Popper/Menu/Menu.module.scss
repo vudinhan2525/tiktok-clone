@@ -37,8 +37,9 @@
 }
 // Header
 .header {
-  height: 32px;
+  height: 47px;
   position: relative;
+  flex-shrink: 0;
   text-align: center;
   margin-top: -8px;
 }
@@ -46,7 +47,7 @@
   position: absolute;
   display: block;
   background-color: unset;
-  height: 32px;
+  height: 47px;
   cursor: pointer;
   width: 50px;
   top: -1px;
@@ -59,9 +60,19 @@
   font-size: 16px;
   line-height: 21px;
   letter-spacing: 0.03px;
-  line-height: 32px;
+  line-height: 47px;
+  margin: 0;
   margin-left: 12px;
 }
 .separate {
   border-top: 1px solid #e0d9d9;
+}
+body .language {
+  font-size: 1.4rem;
+  line-height: 24px;
+  font-weight: 500;
+  letter-spacing: 0.093px;
+}
+.menu-body {
+  overflow-y: overlay;
 }

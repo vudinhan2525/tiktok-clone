@@ -1,5 +1,5 @@
 import { Home, Following, Profile, Upload } from '~/pages';
-import UploadLayout from '~/component/Layout/UploadLayout';
+import UploadLayout from '~/layouts/UploadLayout';
 import routes from '~/config/routes.js';
 const publicRoutes = [
   { path: routes.home, component: Home },

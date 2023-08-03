@@ -1,15 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faCircleXmark,
-  faMagnifyingGlass,
-  faCircleNotch,
-  faPlus,
-  faEllipsisVertical,
-  faEarthAsia,
-  faGear,
-  faCoins,
-  faArrowRightFromBracket,
-} from '@fortawesome/free-solid-svg-icons';
+import { faEarthAsia, faGear, faCoins, faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons';
 import { faMoon, faCircleQuestion, faKeyboard, faUser, faHeart } from '@fortawesome/free-regular-svg-icons';
 const MenuItems = [
   {

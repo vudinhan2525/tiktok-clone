@@ -1,6 +1,7 @@
+import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
 import { Link } from 'react-router-dom';
-import ToggleSwitch from '~/component/Layout/components/ToggleSwitch';
+import ToggleSwitch from '~/layouts/components/ToggleSwitch';
 import styles from './Menu.module.scss';
 const cx = classNames.bind(styles);
 function MenuItem({ data, ...passProps }) {
@@ -26,5 +27,7 @@ function MenuItem({ data, ...passProps }) {
     </Comp>
   );
 }
-
+MenuItem.propTypes = {
+  data: PropTypes.object.isRequired,
+};
 export default MenuItem;

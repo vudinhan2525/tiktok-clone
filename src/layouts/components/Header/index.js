@@ -8,12 +8,12 @@ import 'tippy.js/dist/tippy.css';
 import routes from '~/config/routes';
 import styles from './Header.module.scss';
 import images from '~/assets/image';
-import Search from '~/component/Layout/components/Search';
-import Button from '~/component/Layout/components/Button';
+import Search from '~/layouts/components/Search';
+import Button from '~/layouts/components/Button';
 import Menu from '~/component/Popper/Menu';
-import Image from '~/component/Layout/components/Image';
+import Image from '~/layouts/components/Image';
 import { MenuItems, MenuUser } from './fakeApi';
-import { MessageIcons, UpLoadIcons } from '~/component/Layout/components/UploadIcons';
+import { MessageIcons, UpLoadIcons } from '~/layouts/components/UploadIcons';
 const cx = classNames.bind(styles);
 let currentUser = true;
 function Header() {

@@ -1,14 +1,13 @@
 import { useState, useRef, useEffect } from 'react';
-import axios from 'axios';
 import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Tippy from '@tippyjs/react/headless';
 import { faCircleXmark, faMagnifyingGlass, faCircleNotch } from '@fortawesome/free-solid-svg-icons';
 
-import { searchService } from '~/apiServices';
+import { searchService } from '~/Services';
 import { useDebounce } from '~/hooks';
 import { Wrapper as PopperWrapper } from '~/component/Popper';
-import ProfileList from '~/component/Layout/components/ProfileList/ProfileList.js';
+import ProfileList from '~/layouts/components/ProfileList/ProfileList.js';
 import styles from './Search.module.scss';
 const cx = classNames.bind(styles);
 
@@ -20,7 +19,8 @@ function Search() {
 
   const debounce = useDebounce(input, 500);
   const inputRef = useRef();
-
+  const resultRef = useRef(0);
+  const searchBoxRef = useRef(0);
   useEffect(() => {
     if (debounce.trim() === '') {
       setSearchResult([]);
@@ -40,10 +40,27 @@ function Search() {
     setInput('');
     inputRef.current.focus();
   };
-
   const handleHideResult = () => {
     setShowResult(false);
   };
+
+  //Handle Width Of SearchBar
+  function handleResize() {
+    let gap = window.outerWidth - window.innerWidth;
+    let newWidth = 500 - gap / 2;
+    if (searchBoxRef.current && resultRef.current) {
+      if (newWidth < 200) {
+        searchBoxRef.current.style.display = 'none';
+        resultRef.current.style.display = 'none';
+      } else {
+        searchBoxRef.current.style.display = 'flex';
+        searchBoxRef.current.style.width = newWidth + 'px';
+        resultRef.current.style.display = 'block';
+        resultRef.current.style.width = newWidth + 'px';
+      }
+    }
+  }
+  window.addEventListener('resize', handleResize);
   return (
     // Using div wrapped <div> tag to solve Tippy
     <div>
@@ -51,8 +68,9 @@ function Search() {
         visible={showResult && searchResult.length > 0}
         appendTo={() => document.body}
         interactive
+        placement="bottom"
         render={(attrs) => (
-          <div className={cx('search-result')} tabIndex="-1" {...attrs}>
+          <div className={cx('search-result')} ref={resultRef} tabIndex="-1" {...attrs}>
             <PopperWrapper>
               <h4 className={cx('search-title-account')}>Tài khoản</h4>
               {searchResult.map((result) => (
@@ -64,7 +82,7 @@ function Search() {
         )}
         onClickOutside={handleHideResult}
       >
-        <div className={cx('search-box')}>
+        <div className={cx('search-box')} ref={searchBoxRef}>
           <input
             value={input}
             className={cx('search-input')}

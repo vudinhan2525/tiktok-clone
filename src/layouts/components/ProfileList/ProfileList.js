@@ -1,8 +1,9 @@
 import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-router-dom';
+import PropsTypes from 'prop-types';
 
-import Image from '~/component/Layout/components/Image';
+import Image from '~/layouts/components/Image';
 import styles from './ProfileList.module.scss';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 const cx = classNames.bind(styles);
@@ -21,4 +22,7 @@ function ProfileList({ data, onClick }) {
   );
 }
 
+ProfileList.propTypes = {
+  data: PropsTypes.object.isRequired,
+};
 export default ProfileList;

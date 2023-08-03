@@ -1,5 +1,5 @@
 .search-result {
-  width: var(--header-width);
+  width: var(--search-width);
   padding-top: 8px;
 }
 .search-title-account {
@@ -26,7 +26,7 @@
 .search-box {
   background-color: #f1f1f2;
   padding: 10px 16px;
-  width: var(--header-width);
+  width: var(--search-width);
   display: flex;
   justify-content: space-between;
   border-radius: 50px;

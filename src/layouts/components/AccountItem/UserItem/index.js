@@ -36,7 +36,7 @@ function UserItem({ data, notPreview }) {
   };
   const renderItem = () => {
     return (
-      <Link className={cx('item')}>
+      <Link to={`/@${data.nickname}`} className={cx('item')}>
         <Image alt="" src={data.avatar} className={cx('avatar')} />
         <div className={cx('info')}>
           <h4 className={cx('name')}>{data.first_name + ' ' + data.last_name}</h4>

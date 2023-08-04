@@ -10,6 +10,6 @@ function UploadLayout({ children }) {
   );
 }
 UploadLayout.propTypes = {
-  UploadLayout: PropTypes.node.isRequired,
+  children: PropTypes.node.isRequired,
 };
 export default UploadLayout;

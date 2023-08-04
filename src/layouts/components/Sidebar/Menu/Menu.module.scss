@@ -1,0 +1,31 @@
+.menu-item {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  box-sizing: border-box;
+  border-radius: 4px;
+  font-size: 32px;
+  transition: background-color ease-in-out 200ms;
+  &:hover {
+    background-color: rgba(22, 24, 35, 0.03);
+  }
+  &.active {
+    color: var(--primary-color);
+  }
+  &.active .item-title {
+    color: var(--primary-color);
+  }
+}
+.item-icon {
+  display: flex;
+  text-align: center;
+}
+.item-title {
+  color: var(--black-color);
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: -0.028px;
+  margin: 0;
+  margin-left: 8px;
+}

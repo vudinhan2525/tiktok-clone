@@ -54,6 +54,7 @@
   border-right: 1px solid #ccc;
   caret-color: var(--primary-color);
   padding: 0;
+  padding-right: 40px;
   margin: 0;
   &:not(:placeholder-shown) ~ .search-btn {
     color: #4c4e57;

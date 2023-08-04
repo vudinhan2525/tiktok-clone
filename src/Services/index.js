@@ -1,2 +1,3 @@
 import searchService from './searchServices';
-export { searchService };
+import suggestService from './suggestServices';
+export { searchService, suggestService };

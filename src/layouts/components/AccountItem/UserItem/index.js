@@ -54,6 +54,7 @@ function UserItem({ data, notPreview }) {
     <div>
       {notPreview === false ? (
         <Tippy
+          appendTo={document.getElementById('root')}
           offset={[5, 10]}
           interactive
           placement="bottom-end"

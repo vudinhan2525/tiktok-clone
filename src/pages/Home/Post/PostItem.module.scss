@@ -1,0 +1,73 @@
+.post-item {
+  height: 690px;
+  display: flex;
+  align-self: flex-start;
+  padding-top: 20px;
+  border-bottom: 1px solid rgba(22, 24, 35, 0.2);
+}
+.avatar {
+  height: 56px;
+  width: 56px;
+  border-radius: 50%;
+}
+.content-box {
+  margin-left: 12px;
+  flex: 1;
+}
+.content-header {
+  position: relative;
+  width: 100%;
+}
+.info {
+  display: flex;
+  align-items: center;
+}
+.nickname {
+  font-weight: 700;
+  font-size: 1.8rem;
+  line-height: 24px;
+  letter-spacing: -0.028px;
+  margin: 0;
+  margin-right: 5px;
+  cursor: pointer;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+.fullname {
+  margin: 0;
+  font-weight: 400;
+  font-size: 1.4rem;
+  line-height: 28px;
+  letter-spacing: 0.093px;
+}
+.bio {
+  font-size: 1.6rem;
+  line-height: 21px;
+  letter-spacing: 0.03px;
+  word-break: break-word;
+}
+.music {
+  line-height: 21px;
+  letter-spacing: 0.03px;
+  font-size: 1.3rem;
+  cursor: pointer;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+.music-icon {
+  margin-right: 4px;
+  font-size: 1.2rem;
+}
+.btn {
+  position: absolute;
+  right: 10px;
+  top: 5px;
+}
+.video-box {
+  margin-top: 15px;
+}
+.video {
+  border-radius: 10px;
+}

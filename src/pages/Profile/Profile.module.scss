@@ -41,3 +41,53 @@
   width: 208px;
   height: 36px;
 }
+.rate-box {
+  display: flex;
+  margin-top: 20px;
+}
+.rate {
+  font-weight: 700;
+  font-size: 1.8rem;
+  line-height: 24px;
+  letter-spacing: -0.028px;
+  margin-right: 14px;
+}
+.rate-description {
+  margin-left: 2px;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 21px;
+  letter-spacing: 0.03px;
+  display: inline-block;
+  color: rgba(22, 24, 35, 0.75);
+}
+.bio {
+  margin-top: 10px;
+  font-weight: 200;
+  opacity: 0.9;
+  font-size: 16px;
+  line-height: 21px;
+  letter-spacing: 0.03px;
+}
+.link-box {
+  margin-top: 6px;
+  display: flex;
+  align-self: center;
+}
+.link-box + .link-box {
+  margin-top: 0;
+}
+.link-icon {
+  height: 10px;
+}
+.link {
+  font-weight: 600;
+  margin-left: 4px;
+  font-size: 1.5rem;
+  line-height: 21px;
+  cursor: pointer;
+  letter-spacing: 0.03px;
+  &:hover {
+    text-decoration: underline;
+  }
+}

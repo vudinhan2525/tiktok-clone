@@ -1,14 +1,36 @@
 import classNames from 'classnames/bind';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useState, useRef, useEffect } from 'react';
 
 import Image from '~/layouts/components/Image';
 import Button from '~/layouts/components/Button';
 import styles from './PostItem.module.scss';
-import { faBookmark, faComment, faHeart, faMusic, faShare } from '@fortawesome/free-solid-svg-icons';
+import {
+  faBookmark,
+  faComment,
+  faHeart,
+  faMusic,
+  faShare,
+  faPlay,
+  faPause,
+  faVolumeXmark,
+  faVolumeHigh,
+} from '@fortawesome/free-solid-svg-icons';
 const cx = classNames.bind(styles);
 
 function PostItem({ post }) {
+  const [playing, setPlaying] = useState(true);
+  const videoRef = useRef();
+  const handlePauseVideo = () => {
+    videoRef.current.pause();
+    setPlaying(false);
+  };
+  const handlePlayVideo = () => {
+    videoRef.current.play();
+    setPlaying(true);
+  };
+  useEffect(() => {}, []);
   return (
     <div className={cx('post-item')}>
       <Link className={cx('avatar-box')}>
@@ -32,33 +54,46 @@ function PostItem({ post }) {
           </Button>
         </div>
         <div className={cx('video-box')}>
-          <video
-            className={cx('video')}
-            autoPlay
-            src={post.file_url}
-            controls
-            loop
-            muted
-            width={312}
-            height={556}
-          ></video>
-          <div className={cx('action-box')}>
-            <div className={cx('action-item')}>
-              <FontAwesomeIcon icon={faHeart} />
+          <div className={cx('video-content')}>
+            <video
+              className={cx('video')}
+              autoPlay={playing}
+              src={post.file_url}
+              loop
+              muted
+              width={312}
+              height={556}
+              ref={videoRef}
+            ></video>
+            <div className={cx('toggle-play-btn')}>
+              {playing ? (
+                <FontAwesomeIcon className={cx('pausing')} onClick={handlePauseVideo} icon={faPause}></FontAwesomeIcon>
+              ) : (
+                <FontAwesomeIcon className={cx('playing')} onClick={handlePlayVideo} icon={faPlay}></FontAwesomeIcon>
+              )}
             </div>
-            <span className={cx('number')}>{post.likes_count}</span>
-            <div className={cx('action-item')}>
-              <FontAwesomeIcon icon={faComment} />
+            <div className={cx('toggle-volume-btn')}>
+              {/* <FontAwesomeIcon className={cx('playing')} icon={faVolumeHigh}></FontAwesomeIcon> */}
+              <FontAwesomeIcon className={cx('muting')} icon={faVolumeXmark}></FontAwesomeIcon>
             </div>
-            <span className={cx('number')}>{post.comments_count}</span>
-            <div className={cx('action-item')}>
-              <FontAwesomeIcon icon={faBookmark} />
+            <div className={cx('action-box')}>
+              <div className={cx('action-item')}>
+                <FontAwesomeIcon icon={faHeart} />
+              </div>
+              <span className={cx('number')}>{post.likes_count}</span>
+              <div className={cx('action-item')}>
+                <FontAwesomeIcon icon={faComment} />
+              </div>
+              <span className={cx('number')}>{post.comments_count}</span>
+              <div className={cx('action-item')}>
+                <FontAwesomeIcon icon={faBookmark} />
+              </div>
+              <span className={cx('number')}>{post.shares_count}</span>
+              <div className={cx('action-item')}>
+                <FontAwesomeIcon icon={faShare} />
+              </div>
+              <span className={cx('number')}>{post.shares_count}</span>
             </div>
-            <span className={cx('number')}>{post.shares_count}</span>
-            <div className={cx('action-item')}>
-              <FontAwesomeIcon icon={faShare} />
-            </div>
-            <span className={cx('number')}>{post.shares_count}</span>
           </div>
         </div>
       </div>

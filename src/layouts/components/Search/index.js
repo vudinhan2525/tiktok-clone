@@ -60,7 +60,10 @@ function Search() {
       }
     }
   }
-  window.addEventListener('resize', handleResize);
+  useEffect(() => {
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('scroll', handleResize);
+  }, []);
   return (
     // Using div wrapped <div> tag to solve Tippy
     <div>

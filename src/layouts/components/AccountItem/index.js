@@ -1,7 +1,6 @@
 import classNames from 'classnames/bind';
 import { useState, useEffect } from 'react';
 
-import { useMounted } from '~/hooks';
 import { suggestService } from '~/Services';
 import styles from './AccountItem.module.scss';
 import UserItem from './UserItem';
@@ -10,13 +9,12 @@ const cx = classNames.bind(styles);
 function AccountItem({ title, data = [], notPreview = false }) {
   const [users, setUsers] = useState(data);
   const [currentPage, setCurrentPage] = useState(1);
-  const mounted = useMounted();
-  if (mounted) {
+  useEffect(() => {
     (async () => {
       setUsers(await suggestService(currentPage, 5));
       setCurrentPage((prev) => prev + 1);
     })();
-  }
+  }, []);
   const handleSeeMore = () => {
     (async () => {
       const newUsers = await suggestService(currentPage, 5);

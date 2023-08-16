@@ -5,7 +5,6 @@ import styles from './Home.module.scss';
 import PostItem from './Post';
 import { loadPostService } from '~/Services';
 const cx = classNames.bind(styles);
-let isLoad = true;
 function Home() {
   const [posts, setPosts] = useState([]);
   const [page, setPage] = useState(1);
@@ -16,7 +15,6 @@ function Home() {
     })();
   }, [page]);
   function handleLoadPost() {
-    console.log(posts);
     if (window.scrollY + window.innerHeight >= document.body.offsetHeight) {
       setPage((page) => page + 1);
     }
@@ -24,7 +22,7 @@ function Home() {
   useEffect(() => {
     window.addEventListener('scroll', handleLoadPost);
     return () => window.removeEventListener('scroll', handleLoadPost);
-  }, []);
+  }, [page]);
   if (posts.length === 0) return <></>;
   return (
     <div className={cx('wrapped')}>

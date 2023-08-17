@@ -30,7 +30,28 @@ function PostItem({ post }) {
     videoRef.current.play();
     setPlaying(true);
   };
-  useEffect(() => {}, []);
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting === true) {
+            videoRef.current.play();
+            setPlaying(true);
+          } else {
+            videoRef.current.pause();
+            setPlaying(false);
+          }
+        });
+      },
+      {
+        threshold: 0.5,
+      },
+    );
+    if (videoRef.current) observer.observe(videoRef.current);
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
   return (
     <div className={cx('post-item')}>
       <Link className={cx('avatar-box')}>
@@ -75,6 +96,9 @@ function PostItem({ post }) {
             <div className={cx('toggle-volume-btn')}>
               {/* <FontAwesomeIcon className={cx('playing')} icon={faVolumeHigh}></FontAwesomeIcon> */}
               <FontAwesomeIcon className={cx('muting')} icon={faVolumeXmark}></FontAwesomeIcon>
+              <div className={cx('volume-wrapper')}>
+                <input type="range" className={cx('volume')}></input>
+              </div>
             </div>
             <div className={cx('action-box')}>
               <div className={cx('action-item')}>

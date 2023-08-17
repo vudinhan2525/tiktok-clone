@@ -133,4 +133,37 @@
   cursor: pointer;
   color: var(--white-color);
   opacity: 0;
+  &:hover .volume-wrapper {
+    display: flex;
+  }
+}
+.volume-wrapper {
+  position: absolute;
+  right: -21px;
+  bottom: 50px;
+  transform: rotate(-90deg);
+  height: 23px;
+  width: 65px;
+  display: flex;
+  align-items: center;
+  border-radius: 20px;
+  background-color: rgba(22, 24, 35, 0.5);
+  display: none;
+}
+.volume {
+  -webkit-appearance: none; /* Override default CSS styles */
+  appearance: none;
+  cursor: pointer;
+  width: 47px;
+  margin: auto;
+  height: 2px;
+  background-color: rgba(255, 255, 255, 0.34);
+}
+.volume::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px; /* Set a specific slider handle width */
+  height: 12px;
+  border-radius: 50%;
+  background: var(--white-color);
 }

@@ -57,11 +57,7 @@ function Header() {
           )}
           <Menu items={currentUser ? MenuUser : MenuItems}>
             {currentUser ? (
-              <Image
-                className={cx('user-avatar')}
-                alt="An Vu"
-                src="https://p16-sign-va.tiktokcdn.com/tos-maliva-avt-0068/0b1d58fee5011827b610b33d694e6c51~c5_300x300.webp?x-expires=1690966800&x-signature=CncyXkG2c1QSSVzRlkhCFY0yuBA%3D"
-              />
+              <Image className={cx('user-avatar')} alt="An Vu" src="" />
             ) : (
               <span>
                 <Button cls={cx('options')}>

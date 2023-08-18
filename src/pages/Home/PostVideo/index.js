@@ -26,9 +26,12 @@ function PostVideo({ post }) {
     }
   });
   const videoRef = useRef();
+  const volumeInputRef = useRef();
   const handlePauseVideo = () => {
-    videoRef.current.pause();
-    setPlaying(false);
+    if (!videoRef.current.paused) {
+      videoRef.current.pause();
+      setPlaying(false);
+    }
   };
   const handlePlayVideo = () => {
     videoRef.current.play();
@@ -39,11 +42,16 @@ function PostVideo({ post }) {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting === true) {
-            videoRef.current.play();
-            setPlaying(true);
+            if (videoRef.current.paused) {
+              videoRef.current.play();
+              //videoRef.current.muted = false;
+              setPlaying(true);
+            }
           } else {
-            videoRef.current.pause();
-            setPlaying(false);
+            if (!videoRef.current.paused) {
+              videoRef.current.pause();
+              setPlaying(false);
+            }
           }
         });
       },
@@ -56,6 +64,11 @@ function PostVideo({ post }) {
       observer.disconnect();
     };
   }, []);
+  useEffect(() => {
+    volumeInputRef.current.style.background = `linear-gradient(90deg, var(--white-color) ${Math.floor(
+      volume * 100,
+    )}%, rgba(255, 255, 255, 0.34) 0)`;
+  }, [volume]);
   const handleChangeVolume = (e) => {
     videoRef.current.muted = false;
 
@@ -114,6 +127,7 @@ function PostVideo({ post }) {
               step={0.01}
               value={volume}
               onChange={handleChangeVolume}
+              ref={volumeInputRef}
             ></input>
           </div>
         </div>

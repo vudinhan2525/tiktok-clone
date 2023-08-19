@@ -12,11 +12,14 @@ import Search from '~/layouts/components/Search';
 import Button from '~/layouts/components/Button';
 import Menu from '~/component/Popper/Menu';
 import Image from '~/layouts/components/Image';
+import LoginLayout from '~/layouts/LoginLayout';
 import { MenuItems, MenuUser } from './fakeApi';
 import { MessageIcons, UpLoadIcons } from '~/layouts/components/UploadIcons';
+import { useState } from 'react';
 const cx = classNames.bind(styles);
-let currentUser = true;
+let currentUser = false;
 function Header() {
+  const [showLayout, setShowLayout] = useState(false);
   return (
     <header className={cx('wrapped')}>
       <div className={cx('inner')}>
@@ -52,7 +55,15 @@ function Header() {
             </>
           ) : (
             <>
-              <Button primary>Đăng nhập</Button>
+              <Button
+                primary
+                onClick={() => {
+                  setShowLayout(true);
+                  document.querySelector('body').style.overflowY = 'hidden';
+                }}
+              >
+                Đăng nhập
+              </Button>
             </>
           )}
           <Menu items={currentUser ? MenuUser : MenuItems}>
@@ -68,6 +79,16 @@ function Header() {
           </Menu>
         </div>
       </div>
+      {showLayout === true ? (
+        <LoginLayout
+          onClick={() => {
+            setShowLayout(false);
+            document.querySelector('body').style.overflowY = 'overlay';
+          }}
+        ></LoginLayout>
+      ) : (
+        <></>
+      )}
     </header>
   );
 }

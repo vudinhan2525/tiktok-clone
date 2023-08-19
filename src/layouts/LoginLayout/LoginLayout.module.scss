@@ -1,0 +1,138 @@
+.wrapped {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background: rgba(0, 0, 0, 0.5);
+}
+.container {
+  width: 483px;
+  height: 520px;
+  background-color: var(--white-color);
+  margin: auto;
+  margin-top: 70px;
+  border-radius: 8px;
+  padding-top: 60px;
+  position: relative;
+}
+.header {
+  text-align: center;
+  margin: 0;
+  margin-bottom: 20px;
+}
+.item {
+  display: flex;
+  justify-content: flex-start;
+  border: 1px solid rgba(22, 24, 35, 0.12);
+  padding: 0px 12px;
+  height: 44px;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 10px;
+  &.disable {
+    opacity: 0.5;
+    user-select: none;
+    cursor: not-allowed;
+  }
+}
+
+.content {
+  height: 320px;
+  overflow-y: scroll;
+}
+.content-inside {
+  margin-left: 50px;
+  margin-right: 50px;
+}
+.icon {
+  display: flex;
+  align-self: center;
+}
+.text {
+  flex: 1;
+  text-align: center;
+}
+.policy-text {
+  color: rgba(22, 24, 35, 0.5);
+  font-size: 12px;
+  line-height: 15px;
+  margin-left: 55px;
+  margin-right: 55px;
+  margin-top: 20px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+.linked {
+  color: var(--black-color);
+}
+.footer {
+  padding-top: 5px;
+  border-top: 2px solid rgba(22, 24, 35, 0.12);
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  font-weight: 400;
+  height: 65px;
+}
+.footer-sing {
+  margin-left: 8px;
+  color: var(--primary-color);
+  font-weight: 600;
+  cursor: pointer;
+}
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  height: 40px;
+  width: 40px;
+  background-color: #f8f8f8;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.back-btn {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  height: 40px;
+  width: 40px;
+  background-color: #f8f8f8;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.login-text {
+  font-weight: 600;
+  font-size: 15px;
+  margin: 0;
+  margin-bottom: 5px;
+}
+.login-input {
+  display: block;
+  width: 100%;
+  outline: none;
+  background-color: #f1f1f2;
+  border: 1px solid rgba(22, 24, 35, 0.12);
+  padding: 12px 15px;
+  font-size: 1.6rem;
+  margin-bottom: 10px;
+  border-radius: 3px;
+  color: rgba(0, 0, 0, 0.7);
+}
+.login-btn {
+  width: 100%;
+  height: 50px;
+}

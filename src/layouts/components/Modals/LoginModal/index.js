@@ -7,8 +7,9 @@ import { faArrowLeft, faX } from '@fortawesome/free-solid-svg-icons';
 import Button from '~/layouts/components/Button';
 const cx = classNames.bind(styles);
 
-function LoginLayout({ onClick }) {
+function LoginLayout({ onClick, isOpen }) {
   const [page, setPage] = useState([0]);
+  if (!isOpen) return null;
   let curpage = page[page.length - 1];
   const renderContent = () => {
     return (

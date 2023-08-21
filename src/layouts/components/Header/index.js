@@ -12,7 +12,7 @@ import Search from '~/layouts/components/Search';
 import Button from '~/layouts/components/Button';
 import Menu from '~/component/Popper/Menu';
 import Image from '~/layouts/components/Image';
-import LoginLayout from '~/layouts/LoginLayout';
+import LoginModal from '~/layouts/components/Modals/LoginModal';
 import { MenuItems, MenuUser } from './fakeApi';
 import { MessageIcons, UpLoadIcons } from '~/layouts/components/UploadIcons';
 import { useState } from 'react';
@@ -77,18 +77,15 @@ function Header() {
               </span>
             )}
           </Menu>
+          <LoginModal
+            isOpen={showLayout}
+            onClick={() => {
+              setShowLayout(false);
+              document.querySelector('body').style.overflowY = 'overlay';
+            }}
+          ></LoginModal>
         </div>
       </div>
-      {showLayout === true ? (
-        <LoginLayout
-          onClick={() => {
-            setShowLayout(false);
-            document.querySelector('body').style.overflowY = 'overlay';
-          }}
-        ></LoginLayout>
-      ) : (
-        <></>
-      )}
     </header>
   );
 }

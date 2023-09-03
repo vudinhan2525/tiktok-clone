@@ -4,7 +4,8 @@ import { useState } from 'react';
 import { loginMethods } from './loginmethod';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faX } from '@fortawesome/free-solid-svg-icons';
-import Button from '~/layouts/components/Button';
+import RenderSignUp from './signUp';
+import RenderLogin from './login';
 const cx = classNames.bind(styles);
 
 function LoginLayout({ onClick, isOpen }) {
@@ -51,35 +52,10 @@ function LoginLayout({ onClick, isOpen }) {
     );
   };
   const renderLogin = () => {
-    return (
-      <div className={cx('content')}>
-        <div className={cx('content-inside')}>
-          <h1 className={cx('header')}>Đăng nhập</h1>
-          <p className={cx('login-text')}>Email hoặc TikTok ID</p>
-          <input type="text" className={cx('login-input')} placeholder="Email hoặc TikTok ID"></input>
-          <input type="password" className={cx('login-input')} placeholder="Mật khẩu"></input>
-          <Button primary cls={cx('login-btn')}>
-            Đăng nhập
-          </Button>
-        </div>
-      </div>
-    );
+    return <RenderLogin />;
   };
   const renderSignUp = () => {
-    return (
-      <div className={cx('content')}>
-        <div className={cx('content-inside')}>
-          <h1 className={cx('header')}>Đăng ký</h1>
-          <p className={cx('login-text')}>Email</p>
-          <input type="text" className={cx('login-input')} placeholder="Địa chỉ Email"></input>
-          <input type="password" className={cx('login-input')} placeholder="Mật khẩu"></input>
-          <input type="password" className={cx('login-input')} placeholder="Xác nhận mật khẩu"></input>
-          <Button primary cls={cx('login-btn')}>
-            Đăng ký
-          </Button>
-        </div>
-      </div>
-    );
+    return <RenderSignUp />;
   };
   const handleChangePage = () => {
     if (curpage === 0) {
@@ -87,6 +63,9 @@ function LoginLayout({ onClick, isOpen }) {
     }
     if (curpage === 2 || curpage === 3) {
       setPage([0]);
+    }
+    if (curpage === 1) {
+      setPage((prev) => [...prev, 3]);
     }
   };
   return (

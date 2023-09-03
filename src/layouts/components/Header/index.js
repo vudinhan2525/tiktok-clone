@@ -15,11 +15,37 @@ import Image from '~/layouts/components/Image';
 import LoginModal from '~/layouts/components/Modals/LoginModal';
 import { MenuItems, MenuUser } from './fakeApi';
 import { MessageIcons, UpLoadIcons } from '~/layouts/components/UploadIcons';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+
 const cx = classNames.bind(styles);
-let currentUser = false;
 function Header() {
+  const [currentUser, setCurrentUser] = useState(false);
   const [showLayout, setShowLayout] = useState(false);
+  useEffect(() => {
+    const token = localStorage.getItem('jwt');
+    if (!token) return setCurrentUser(false);
+    const checkUserAuthentication = async (token) => {
+      try {
+        const response = await axios.post(
+          'http://127.0.0.1:8000/api/v1/verifyjwt',
+          {
+            token,
+          },
+          {
+            headers: {
+              'Content-Type': 'application/json', // Set the content type
+            },
+          },
+        );
+        if (response.data.status === 'success') return true;
+        return false;
+      } catch (error) {
+        return false;
+      }
+    };
+    setCurrentUser(checkUserAuthentication(token));
+  }, []);
   return (
     <header className={cx('wrapped')}>
       <div className={cx('inner')}>
